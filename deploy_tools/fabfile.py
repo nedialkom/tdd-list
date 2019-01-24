@@ -3,6 +3,10 @@ from fabric.contrib.files import append, exists
 from fabric.api import cd, env, local, run
 
 REPO_URL = 'https://github.com/nedialkom/tdd-list'
+env.user = "ubuntu"
+env.key_filename = ['/home/ubuntu/sites/superlists-staging.nedialko.ml/list.pem']
+env.hosts = ['ec2-18-184-216-201.eu-central-1.compute.amazonaws.com']
+
 
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
