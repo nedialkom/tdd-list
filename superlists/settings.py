@@ -29,7 +29,8 @@ SECRET_KEY = 'v*(2fe@s2qlj&dz+5%+9iqan@s0%%$--*$4b^vu4pj)bs9^rie'
 if 'DJANGO_DEBUG_FALSE' in os.environ:
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-    ALLOWED_HOSTS = [os.environ['SITENAME']]
+    #ALLOWED_HOSTS = [os.environ['SITENAME']]
+    ALLOWED_HOSTS = ['nedialko.tk']
 else:
     DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
