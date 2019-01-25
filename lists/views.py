@@ -3,18 +3,6 @@ from django.http import HttpResponse
 from lists.models import Item, List
 from django.core.exceptions import ValidationError
 
-# Create your views here.
-#def home_page(request):
-#    if request.method == 'POST':
-#        new_item_text = request.POST['item_text']
-#        Item.objects.create(text=new_item_text)
-#    else:
-#        new_item_text = ''
-
-#    return render(request, 'home.html', {
-#        'new_item_text': new_item_text,
-#    })
-
 def home_page(request):
     return render(request, 'home.html')
 
@@ -27,7 +15,7 @@ def view_list(request, list_id):
             item = Item(text=request.POST['item_text'], list=list_)
             item.full_clean()
             item.save()
-            return redirect(f'/lists/{list_.id}/')
+            return redirect(list_)
         except ValidationError:
             error = "You can't have an empty list item"
 
@@ -43,4 +31,4 @@ def new_list(request):
         list_.delete()
         error = "You can't have an empty list item"
         return render(request, 'home.html', {"error": error})
-    return redirect(f'/lists/{list_.id}/')
+    return redirect(list_)
