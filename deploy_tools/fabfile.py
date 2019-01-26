@@ -4,7 +4,7 @@ from fabric.api import cd, env, local, run
 
 REPO_URL = 'https://github.com/nedialkom/tdd-list'
 env.user = "ubuntu"
-env.key_filename = ['/home/ubuntu/sites/superlists-staging.nedialko.ml/list.pem']
+env.key_filename = [r"C:\Users\nedia\Python\code\python-tdd-book\list.pem"]
 env.hosts = ['ec2-18-184-216-201.eu-central-1.compute.amazonaws.com']
 
 
